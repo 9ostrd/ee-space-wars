@@ -1,0 +1,210 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"00000000-0000-0000-0000-000000000000",
+	"e011d6c8-ba88-4a2a-98c3-6e4383609862",
+	'functions',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("2ae5cc8b-6cd2-44ad-96d4-13f698f3f848",
+	112,
+	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'shipctrl::ship::ship::functions');
+INSERT INTO DIM_DIA
+	VALUES ("2ae5cc8b-6cd2-44ad-96d4-13f698f3f848",
+	'',
+	1.000000,
+	0.000000,
+	0.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	"00000000-0000-0000-0000-000000000000",
+	'recv_state',
+	'',
+	'select any ctrl from instances of Controller;
+generate Controller4:''state'' (alive:param.alive, px:param.px, py:param.py, pa:param.pa, ux:param.ux, uy:param.uy, ua:param.ua, fx:param.fx, fy:param.fy, fa:param.fa) to ctrl;
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("4357fe0e-423b-4f1e-94fe-1475c5774d84",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'alive',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("aca19768-1033-4e87-988d-91365c5aef42",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'px',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"4357fe0e-423b-4f1e-94fe-1475c5774d84",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("a9fc635d-3a4e-460f-a2f4-96bcd68fdcfa",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'py',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"aca19768-1033-4e87-988d-91365c5aef42",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("3f2386ed-15f4-45be-869e-8e147890715e",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'pa',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"a9fc635d-3a4e-460f-a2f4-96bcd68fdcfa",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("2262ffde-63a7-47c9-b439-aa1705963a48",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'ux',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"3f2386ed-15f4-45be-869e-8e147890715e",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("a42cf733-ce60-43d0-aa95-39771194f9ac",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'uy',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"2262ffde-63a7-47c9-b439-aa1705963a48",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("882eb15b-0689-400e-9b14-807d3fb3f21b",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'ua',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"a42cf733-ce60-43d0-aa95-39771194f9ac",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("c805e688-3b62-4bb6-805c-65eb8aedfcd7",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'fx',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"882eb15b-0689-400e-9b14-807d3fb3f21b",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("a8c6626e-eec5-426a-9e56-d172c4206e78",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'fy',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"c805e688-3b62-4bb6-805c-65eb8aedfcd7",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("bbd1364e-3be7-4469-82e9-18a54566796d",
+	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	'fa',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"a8c6626e-eec5-426a-9e56-d172c4206e78",
+	'');
+INSERT INTO PE_PE
+	VALUES ("7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
+	1,
+	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("c4147732-e990-4f56-9c2d-d7450a96d1a0",
+	"00000000-0000-0000-0000-000000000000",
+	'setup',
+	'',
+	'create object instance ctrl of Controller;
+generate Controller1:''init'' to ctrl;',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO PE_PE
+	VALUES ("c4147732-e990-4f56-9c2d-d7450a96d1a0",
+	1,
+	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("c07dc570-723e-41ab-8528-f8061a0909b0",
+	"00000000-0000-0000-0000-000000000000",
+	'timer',
+	'',
+	'select any ctrl from instances of Controller;
+create event instance timeout of Controller3:''timeout'' to ctrl;
+timer = TIM::timer_start( event_inst:timeout, microseconds:param.microseconds );
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("f7e10c9c-402f-4813-a583-e09600f577cf",
+	"c07dc570-723e-41ab-8528-f8061a0909b0",
+	'microseconds',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO PE_PE
+	VALUES ("c07dc570-723e-41ab-8528-f8061a0909b0",
+	1,
+	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"cd2e8975-2ba3-460d-9077-1a9d577f0947",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("cd2e8975-2ba3-460d-9077-1a9d577f0947",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'ship',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../ship.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("e011d6c8-ba88-4a2a-98c3-6e4383609862",
+	'shipctrl',
+	1,
+	'../../../shipctrl.xtuml');

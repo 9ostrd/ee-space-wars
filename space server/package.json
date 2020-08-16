@@ -1,0 +1,31 @@
+{
+	"name": "space-server",
+	"version": "0.0.1",
+	"description": "Simple socket game, to experiment with developing a io game framework",
+	"engines": {
+		"node": "8.11.3"
+	},
+	"scripts": {
+		"build": "webpack --config webpack.config.js",
+		"start": "node ./src/start.js",
+		"test": "node ./test/test.js"
+	},
+	"dependencies": {
+		"babel-preset-env": "^1.7.0",
+		"babel-register": "^6.26.0",
+		"body-parser": "^1.18.3",
+		"ejs": "^2.6.1",
+		"express": "^4.17.1",
+		"lodash": "^4.17.19",
+		"msgpack-lite": "^0.1.26",
+		"path": "^0.12.7",
+		"phaser": "^2.4.6",
+		"socket.io": "^2.3.0"
+	},
+	"devDependencies": {
+		"dashflow": "^1.4.0",
+		"selenium-webdriver": "^4.0.0-alpha.5",
+		"webpack": "^4.41.0",
+		"webpack-cli": "^3.3.9"
+	}
+}

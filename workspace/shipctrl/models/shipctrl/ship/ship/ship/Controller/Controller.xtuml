@@ -1,0 +1,50 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("bc0b1870-1554-476c-a36f-d530f5a453db",
+	'Controller',
+	1,
+	'Controller',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("ca07f772-b12a-4b79-b3bd-ac5ca48590ba",
+	"bc0b1870-1554-476c-a36f-d530f5a453db");
+INSERT INTO O_BATTR
+	VALUES ("ca07f772-b12a-4b79-b3bd-ac5ca48590ba",
+	"bc0b1870-1554-476c-a36f-d530f5a453db");
+INSERT INTO O_ATTR
+	VALUES ("ca07f772-b12a-4b79-b3bd-ac5ca48590ba",
+	"bc0b1870-1554-476c-a36f-d530f5a453db",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"bc0b1870-1554-476c-a36f-d530f5a453db");
+INSERT INTO O_ID
+	VALUES (1,
+	"bc0b1870-1554-476c-a36f-d530f5a453db");
+INSERT INTO O_ID
+	VALUES (2,
+	"bc0b1870-1554-476c-a36f-d530f5a453db");
+INSERT INTO PE_PE
+	VALUES ("bc0b1870-1554-476c-a36f-d530f5a453db",
+	1,
+	"a38a0778-0bcf-4b0f-a2ad-9d349a4e0c6c",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("a38a0778-0bcf-4b0f-a2ad-9d349a4e0c6c",
+	"00000000-0000-0000-0000-000000000000",
+	"e011d6c8-ba88-4a2a-98c3-6e4383609862",
+	'ship',
+	'',
+	0,
+	'../ship.xtuml');
