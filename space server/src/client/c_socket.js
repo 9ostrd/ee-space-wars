@@ -43,7 +43,7 @@ class ClientSocket {
 	}
 
 	sendShareSelf(toUserID) {
-		const data =  {
+		const data = {
 			to: toUserID,
 			user: this.app.getUserState()
 		};

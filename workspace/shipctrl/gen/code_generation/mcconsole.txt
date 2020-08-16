@@ -1,12 +1,13 @@
 WARNING:  Identify a package to build using MarkSystemConfigurationPackage in system.mark.
-WARNING:  Shared_EEs has been selected arbitrarily as the build configuration.
+WARNING:  ship has been selected arbitrarily as the build configuration.
 Enabling detection of empty handles for component(s) *.
 Action statement tracing enabled for component ship.
 Enabling state transition tracing for component(s) *.
+Function setup marked as initialization function.
 Analyzing model and making optimizations....
 Instance event queue needed.
- attributes read
- attributes written
+1 attributes read
+1 attributes written
 translating control statements
 translating other statements
 rolling up statements into action bodies

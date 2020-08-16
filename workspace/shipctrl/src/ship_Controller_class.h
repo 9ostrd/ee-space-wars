@@ -21,6 +21,7 @@ extern	"C"	{
 struct ship_Controller {
   Escher_StateNumber_t current_state;
   /* application analysis class attributes */
+  i_t cnt;  /* - cnt */
 };
 
 

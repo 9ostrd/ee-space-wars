@@ -84,4 +84,10 @@ const EventTaker_t ship_EventDispatcher[ ship_STATE_MODELS ] = {
 
 void ship_execute_initialization()
 {
+  /*
+   * Initialization Function:  setup
+   * Component:  ship
+   */
+  ship_setup();
+
 }

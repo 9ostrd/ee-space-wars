@@ -58,7 +58,6 @@ void cmd_recv(const char *str, int size) {
 			marker[cursize] = '\0';
 
 			sscanf(marker, "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f", &alive, &px, &py, &pa, &ux, &uy, &ua, &fx, &fy, &fa);
-
 			ship_recv_state(alive, px, py, pa, ux, uy, ua, fx, fy, fa);
 			prevp = i+1;
 		}

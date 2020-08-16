@@ -75,15 +75,14 @@ App.Main.prototype = {
 		this.LaserGroup.forEach(function (laser) {
 			laser.update();
 		});
-		const name = window.gup('name') || '';
-		if (name != 'monitor') {
-			this.player.input(this.self, this.game, {
-				right: this.keyRight.isDown,
-				left: this.keyLeft.isDown,
-				up: this.keyUp.isDown,
-				down: this.keyDown.isDown
-			});
-		}
+
+		this.player.input(this.self, this.game, {
+			right: this.keyRight.isDown,
+			left: this.keyLeft.isDown,
+			up: this.keyUp.isDown,
+			down: this.keyDown.isDown
+		});
+
 		this.game.physics.arcade.overlap(this.LaserGroup, this.ShipGroup, this.laserHit, null, this);
 	},
 
@@ -118,21 +117,16 @@ App.Main.prototype = {
 
 	recvAddSelf: function (data) {
 		const name = window.gup('name') || '';
-		if (name != 'monitor') {
-			this.self = new Ship(this, this.game, data, true);
-			this.ships.push(this.self);
-			this.game.camera.follow(this.self.ship);
-		} else {
-			this.self = {
-				userID: data.userID
-			};
-		}
+
+		this.self = new Ship(this, this.game, data, true);
+		this.ships.push(this.self);
+		this.game.camera.follow(this.self.ship);
+
 		this.updateHUD('both');
 	},
 
 	recvAddUser: function (data) {
-		if (data.name != 'monitor')
-			this.ships.push(new Ship(this, this.game, data));
+		this.ships.push(new Ship(this, this.game, data));
 		this.updateHUD('score');
 	},
 

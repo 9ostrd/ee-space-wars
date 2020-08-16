@@ -22,7 +22,7 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/org.xtuml.bp.mc.masl.masl_builder (1).launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/org.xtuml.bp.mc.masl.masl_builder.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -32,7 +32,7 @@
 			<arguments>
 				<dictionary>
 					<key>LaunchConfigHandle</key>
-					<value>&lt;project&gt;/.externalToolBuilders/org.xtuml.bp.mc.docgen.docgen_builder (1).launch</value>
+					<value>&lt;project&gt;/.externalToolBuilders/org.xtuml.bp.mc.docgen.docgen_builder.launch</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>

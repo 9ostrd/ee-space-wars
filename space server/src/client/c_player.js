@@ -12,12 +12,9 @@ class Player {
 			angle: 0
 		};
 
-		const name = window.gup('name') || '';
-		if (name != 'monitor') {
-			window.addEventListener("mousemove", (e) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; });
-			window.addEventListener("mousedown", (e) => { this.handleClick(); })
-			document.addEventListener("visibilitychange", (e) => { this.defaultKeys(); });
-		}
+		window.addEventListener("mousemove", (e) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; });
+		window.addEventListener("mousedown", (e) => { this.handleClick(); })
+		document.addEventListener("visibilitychange", (e) => { this.defaultKeys(); });
 
 	}
 

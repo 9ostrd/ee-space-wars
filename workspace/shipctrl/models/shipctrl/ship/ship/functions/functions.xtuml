@@ -1,16 +1,16 @@
 -- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
 
 INSERT INTO EP_PKG
-	VALUES ("e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	VALUES ("c06379d0-9319-4a89-937a-c5dc7bbf63c9",
 	"00000000-0000-0000-0000-000000000000",
-	"e011d6c8-ba88-4a2a-98c3-6e4383609862",
+	"ed85067d-6c54-4c9a-a76e-4a43f052537c",
 	'functions',
 	'',
 	0);
 INSERT INTO GD_MD
-	VALUES ("2ae5cc8b-6cd2-44ad-96d4-13f698f3f848",
+	VALUES ("2e6c9e88-5a25-42af-9260-6b9c717cf91e",
 	112,
-	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"c06379d0-9319-4a89-937a-c5dc7bbf63c9",
 	108,
 	0,
 	0,
@@ -24,125 +24,17 @@ INSERT INTO GD_MD
 	0,
 	0,
 	0,
-	'',
+	'4.1.17',
 	'shipctrl::ship::ship::functions');
 INSERT INTO DIM_DIA
-	VALUES ("2ae5cc8b-6cd2-44ad-96d4-13f698f3f848",
+	VALUES ("2e6c9e88-5a25-42af-9260-6b9c717cf91e",
 	'',
 	1.000000,
 	0.000000,
 	0.000000,
 	"00000000-0000-0000-0000-000000000000");
 INSERT INTO S_SYNC
-	VALUES ("7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	"00000000-0000-0000-0000-000000000000",
-	'recv_state',
-	'',
-	'select any ctrl from instances of Controller;
-generate Controller4:''state'' (alive:param.alive, px:param.px, py:param.py, pa:param.pa, ux:param.ux, uy:param.uy, ua:param.ua, fx:param.fx, fy:param.fy, fa:param.fa) to ctrl;
-',
-	"ba5eda7a-def5-0000-0000-000000000000",
-	1,
-	'',
-	0);
-INSERT INTO S_SPARM
-	VALUES ("4357fe0e-423b-4f1e-94fe-1475c5774d84",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'alive',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"00000000-0000-0000-0000-000000000000",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("aca19768-1033-4e87-988d-91365c5aef42",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'px',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"4357fe0e-423b-4f1e-94fe-1475c5774d84",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("a9fc635d-3a4e-460f-a2f4-96bcd68fdcfa",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'py',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"aca19768-1033-4e87-988d-91365c5aef42",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("3f2386ed-15f4-45be-869e-8e147890715e",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'pa',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"a9fc635d-3a4e-460f-a2f4-96bcd68fdcfa",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("2262ffde-63a7-47c9-b439-aa1705963a48",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'ux',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"3f2386ed-15f4-45be-869e-8e147890715e",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("a42cf733-ce60-43d0-aa95-39771194f9ac",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'uy',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"2262ffde-63a7-47c9-b439-aa1705963a48",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("882eb15b-0689-400e-9b14-807d3fb3f21b",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'ua',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"a42cf733-ce60-43d0-aa95-39771194f9ac",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("c805e688-3b62-4bb6-805c-65eb8aedfcd7",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'fx',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"882eb15b-0689-400e-9b14-807d3fb3f21b",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("a8c6626e-eec5-426a-9e56-d172c4206e78",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'fy',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"c805e688-3b62-4bb6-805c-65eb8aedfcd7",
-	'');
-INSERT INTO S_SPARM
-	VALUES ("bbd1364e-3be7-4469-82e9-18a54566796d",
-	"7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	'fa',
-	"ba5eda7a-def5-0000-0000-000000000002",
-	0,
-	'',
-	"a8c6626e-eec5-426a-9e56-d172c4206e78",
-	'');
-INSERT INTO PE_PE
-	VALUES ("7dd43e73-64d7-4c18-8c05-84b6aebc7dcf",
-	1,
-	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
-	"00000000-0000-0000-0000-000000000000",
-	1);
-INSERT INTO S_SYNC
-	VALUES ("c4147732-e990-4f56-9c2d-d7450a96d1a0",
+	VALUES ("83d5022d-50fc-4c0a-a7c2-b6d757646e13",
 	"00000000-0000-0000-0000-000000000000",
 	'setup',
 	'',
@@ -153,13 +45,13 @@ generate Controller1:''init'' to ctrl;',
 	'',
 	0);
 INSERT INTO PE_PE
-	VALUES ("c4147732-e990-4f56-9c2d-d7450a96d1a0",
+	VALUES ("83d5022d-50fc-4c0a-a7c2-b6d757646e13",
 	1,
-	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"c06379d0-9319-4a89-937a-c5dc7bbf63c9",
 	"00000000-0000-0000-0000-000000000000",
 	1);
 INSERT INTO S_SYNC
-	VALUES ("c07dc570-723e-41ab-8528-f8061a0909b0",
+	VALUES ("f8674bb2-1770-4657-961f-91bdb18a7297",
 	"00000000-0000-0000-0000-000000000000",
 	'timer',
 	'',
@@ -172,8 +64,8 @@ timer = TIM::timer_start( event_inst:timeout, microseconds:param.microseconds );
 	'',
 	0);
 INSERT INTO S_SPARM
-	VALUES ("f7e10c9c-402f-4813-a583-e09600f577cf",
-	"c07dc570-723e-41ab-8528-f8061a0909b0",
+	VALUES ("4022b9fb-6afb-45f0-9ea9-11f225608bfb",
+	"f8674bb2-1770-4657-961f-91bdb18a7297",
 	'microseconds',
 	"ba5eda7a-def5-0000-0000-000000000002",
 	0,
@@ -181,19 +73,127 @@ INSERT INTO S_SPARM
 	"00000000-0000-0000-0000-000000000000",
 	'');
 INSERT INTO PE_PE
-	VALUES ("c07dc570-723e-41ab-8528-f8061a0909b0",
+	VALUES ("f8674bb2-1770-4657-961f-91bdb18a7297",
 	1,
-	"e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	"c06379d0-9319-4a89-937a-c5dc7bbf63c9",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO S_SYNC
+	VALUES ("06dede1b-b071-47f9-80ea-52137db82a83",
+	"00000000-0000-0000-0000-000000000000",
+	'recv_state',
+	'',
+	'select any ctrl from instances of Controller;
+generate Controller4:''state'' (alive:param.alive, px:param.px, py:param.py, pa:param.pa, ux:param.ux, uy:param.uy, ua:param.ua, fx:param.fx, fy:param.fy, fa:param.fa) to ctrl;
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'',
+	0);
+INSERT INTO S_SPARM
+	VALUES ("c5c0921b-4244-4605-a728-9acbdb47b7ca",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'alive',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("94056a85-6433-403f-97fe-3e52520b6221",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'px',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"c5c0921b-4244-4605-a728-9acbdb47b7ca",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("e383f582-7e08-4afd-8d0b-df424f36d89c",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'py',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"94056a85-6433-403f-97fe-3e52520b6221",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("09efbb40-3e24-4790-a123-64c4a2859a57",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'pa',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"e383f582-7e08-4afd-8d0b-df424f36d89c",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("2ed79245-5043-44be-bcf6-b4f036dce819",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'ux',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"09efbb40-3e24-4790-a123-64c4a2859a57",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("11aacffd-9a8b-494e-937b-3e2a3d20aa0d",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'uy',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"2ed79245-5043-44be-bcf6-b4f036dce819",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("5bdee5fd-c039-44d2-9c13-9cfb2e07ae60",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'ua',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"11aacffd-9a8b-494e-937b-3e2a3d20aa0d",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("77d82e01-0438-4a32-9c18-bd68163dce91",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'fx',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"5bdee5fd-c039-44d2-9c13-9cfb2e07ae60",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("c27ad09e-8351-4888-83b2-1cd81b5c0eb6",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'fy',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"77d82e01-0438-4a32-9c18-bd68163dce91",
+	'');
+INSERT INTO S_SPARM
+	VALUES ("74166613-9417-481d-a269-cda3e2a4852c",
+	"06dede1b-b071-47f9-80ea-52137db82a83",
+	'fa',
+	"ba5eda7a-def5-0000-0000-000000000002",
+	0,
+	'',
+	"c27ad09e-8351-4888-83b2-1cd81b5c0eb6",
+	'');
+INSERT INTO PE_PE
+	VALUES ("06dede1b-b071-47f9-80ea-52137db82a83",
+	1,
+	"c06379d0-9319-4a89-937a-c5dc7bbf63c9",
 	"00000000-0000-0000-0000-000000000000",
 	1);
 INSERT INTO PE_PE
-	VALUES ("e496f706-7033-4d3f-96bf-d3cbd3f59431",
+	VALUES ("c06379d0-9319-4a89-937a-c5dc7bbf63c9",
 	1,
 	"00000000-0000-0000-0000-000000000000",
-	"cd2e8975-2ba3-460d-9077-1a9d577f0947",
+	"53a77ce1-a152-4cb3-a68d-b016fab392ec",
 	7);
 INSERT INTO C_C_PROXY
-	VALUES ("cd2e8975-2ba3-460d-9077-1a9d577f0947",
+	VALUES ("53a77ce1-a152-4cb3-a68d-b016fab392ec",
 	"00000000-0000-0000-0000-000000000000",
 	"00000000-0000-0000-0000-000000000000",
 	'ship',
@@ -204,7 +204,7 @@ INSERT INTO C_C_PROXY
 	'',
 	'../ship.xtuml');
 INSERT INTO S_SYS_PROXY
-	VALUES ("e011d6c8-ba88-4a2a-98c3-6e4383609862",
+	VALUES ("ed85067d-6c54-4c9a-a76e-4a43f052537c",
 	'shipctrl',
 	1,
 	'../../../shipctrl.xtuml');

@@ -40,6 +40,9 @@ static void ship_Controller_act1( ship_Controller *, const Escher_xtUMLEvent_t *
 static void
 ship_Controller_act1( ship_Controller * self, const Escher_xtUMLEvent_t * const event )
 {
+  /* ASSIGN self.cnt = 0 */
+  XTUML_OAL_STMT_TRACE( 1, "ASSIGN self.cnt = 0" );
+  ((ship_Controller *)xtUML_detect_empty_handle( self, "Controller", "self.cnt" ))->cnt = 0;
 }
 
 /*
@@ -59,22 +62,73 @@ static void
 ship_Controller_act3( ship_Controller * self, const Escher_xtUMLEvent_t * const event )
 {
   ship_Controllerevent4 * rcvd_evt = (ship_Controllerevent4 *) event;
-  i_t alive;ship_Controller * ctrl=0;
+  i_t cnt;i_t alive;ship_Controller * ctrl=0;
   /* SELECT any ctrl FROM INSTANCES OF Controller */
   XTUML_OAL_STMT_TRACE( 1, "SELECT any ctrl FROM INSTANCES OF Controller" );
   ctrl = (ship_Controller *) Escher_SetGetAny( &pG_ship_Controller_extent.active );
   /* ASSIGN alive = PARAM.alive */
   XTUML_OAL_STMT_TRACE( 1, "ASSIGN alive = PARAM.alive" );
   alive = rcvd_evt->p_alive;
+  /* ASSIGN cnt = self.cnt */
+  XTUML_OAL_STMT_TRACE( 1, "ASSIGN cnt = self.cnt" );
+  cnt = ((ship_Controller *)xtUML_detect_empty_handle( self, "Controller", "self.cnt" ))->cnt;
   /* IF ( alive == 1 ) */
   XTUML_OAL_STMT_TRACE( 1, "IF ( alive == 1 )" );
   if ( alive == 1 ) {
-    /* Ship::send( str:angle 180 ) */
-    XTUML_OAL_STMT_TRACE( 2, "Ship::send( str:angle 180 )" );
-    Ship_send( "angle 180" );
-    /* Ship::send( str:fire ) */
-    XTUML_OAL_STMT_TRACE( 2, "Ship::send( str:fire )" );
-    Ship_send( "fire" );
+    /* ASSIGN self.cnt = ( self.cnt + 1 ) */
+    XTUML_OAL_STMT_TRACE( 2, "ASSIGN self.cnt = ( self.cnt + 1 )" );
+    ((ship_Controller *)xtUML_detect_empty_handle( self, "Controller", "self.cnt" ))->cnt = ( ((ship_Controller *)xtUML_detect_empty_handle( self, "Controller", "self.cnt" ))->cnt + 1 );
+    /* IF ( cnt < 10 ) */
+    XTUML_OAL_STMT_TRACE( 2, "IF ( cnt < 10 )" );
+    if ( cnt < 10 ) {
+      /* Ship::send( str:right ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:right )" );
+      Ship_send( "right" );
+      /* Ship::send( str:angle 0 ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:angle 0 )" );
+      Ship_send( "angle 0" );
+      /* Ship::send( str:fire ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:fire )" );
+      Ship_send( "fire" );
+    }
+    else if ( cnt < 20 ) {
+      /* Ship::send( str:up ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:up )" );
+      Ship_send( "up" );
+      /* Ship::send( str:angle 90 ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:angle 90 )" );
+      Ship_send( "angle 90" );
+      /* Ship::send( str:fire ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:fire )" );
+      Ship_send( "fire" );
+    }
+    else if ( cnt < 30 ) {
+      /* Ship::send( str:left ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:left )" );
+      Ship_send( "left" );
+      /* Ship::send( str:angle 180 ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:angle 180 )" );
+      Ship_send( "angle 180" );
+      /* Ship::send( str:fire ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:fire )" );
+      Ship_send( "fire" );
+    }
+    else if ( cnt < 40 ) {
+      /* Ship::send( str:down ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:down )" );
+      Ship_send( "down" );
+      /* Ship::send( str:angle 270 ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:angle 270 )" );
+      Ship_send( "angle 270" );
+      /* Ship::send( str:fire ) */
+      XTUML_OAL_STMT_TRACE( 3, "Ship::send( str:fire )" );
+      Ship_send( "fire" );
+    }
+    else {
+      /* ASSIGN self.cnt = 0 */
+      XTUML_OAL_STMT_TRACE( 3, "ASSIGN self.cnt = 0" );
+      ((ship_Controller *)xtUML_detect_empty_handle( self, "Controller", "self.cnt" ))->cnt = 0;
+    }
     /* GENERATE Controller2:ok() TO ctrl */
     XTUML_OAL_STMT_TRACE( 2, "GENERATE Controller2:ok() TO ctrl" );
     { Escher_xtUMLEvent_t * e = Escher_NewxtUMLEvent( ctrl, &ship_Controllerevent2c );

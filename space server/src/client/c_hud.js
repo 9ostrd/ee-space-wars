@@ -7,12 +7,9 @@ export class HUD {
 
 	updateLaser() {
 		$('#hud #rounds').empty();
-		const name = window.gup('name') || '';
-		if (name != 'monitor') {
-			for (let i = 0; i < LASER_PROPS.ROUNDS; ++i) {
-				const blank = (i < this.app.player.rounds) ? '' : 'blank';
-				$('#hud #rounds').append(`<div class="round ${blank}"></div>`);
-			}
+		for (let i = 0; i < LASER_PROPS.ROUNDS; ++i) {
+			const blank = (i < this.app.player.rounds) ? '' : 'blank';
+			$('#hud #rounds').append(`<div class="round ${blank}"></div>`);
 		}
 	}
 

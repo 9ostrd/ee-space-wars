@@ -31,7 +31,7 @@
 .//   function_name = name of the domain function (synchronous service)
 .//
 .// Example:
-.//   .invoke MarkInitializationFunction( "*", "setup" )
+.invoke MarkInitializationFunction( "*", "setup" )
 .//   .invoke MarkInitializationFunction( "SeatHeater", "test" )
 .//
 .// Notes:

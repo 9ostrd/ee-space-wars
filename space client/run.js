@@ -8,6 +8,7 @@ const cHost = '127.0.0.1';
 const nsPort = 7070;
 const nsHost = '127.0.0.1';
 const ncPort = 7071;
+const ncHost = '127.0.0.1';
 
 // creating a udp server
 const server = udp.createSocket('udp4');
@@ -38,6 +39,7 @@ const getUDPData = () => {
     if ('users' in ioData) {
         let dist_min = -1;
         ioData['users'].forEach(user => {
+            console.log(user);
             let dist = Math.sqrt(Math.pow((px - user['position']['x']), 2) + Math.pow((py - user['position']['y']), 2));
             if (dist < dist_min || dist_min == -1) {
                 dist_min = dist;
@@ -54,6 +56,7 @@ const getUDPData = () => {
         });
         let dist_min = -1;
         ioData['fires'].forEach(fire => {
+            if (ioData['player']['userID'] != fire['userID']) return;
             let dist = Math.sqrt(Math.pow((px - fire['position']['x']), 2) + Math.pow((py - fire['position']['y']), 2));
             if (dist < dist_min || dist_min == -1) {
                 dist_min = dist;
@@ -69,6 +72,7 @@ const getUDPData = () => {
 
 const main = setInterval(() => {
     let str = getUDPData();
+    // console.log(str);
     const bufferData = Buffer.from(str);
     nsClient.send(bufferData, nsPort, nsHost, (error) => { });
 }, 100);
@@ -98,6 +102,7 @@ io.on('addNewUser', (data) => {
 });
 io.on('removeUser', (userID) => {
     console.log('removeUser', userID);
+    while (!('users' in ioData));
     let index = ioData['users'].findIndex((o) => {
         return o.userID === userID;
     });
@@ -208,7 +213,7 @@ server.on('message', (msg, info) => {
                 msg_duplicate_cnt = 0;
             } else {
                 msg_duplicate_cnt = msg_duplicate_cnt + 1;
-                if (msg_duplicate_cnt < 50) {
+                if (msg_duplicate_cnt < 100) {
                     return;
                 } else {
                     msg_duplicate_cnt = 0;
@@ -218,7 +223,7 @@ server.on('message', (msg, info) => {
             ioData['player']['position']['a'] = (+angle % 360);
             io.emit('angleChange', {
                 userID: ioData['player']['userID'],
-                angle: (ioData['player']['position']['a'] * (Math.PI / 180)) + (Math.PI / 4)
+                angle: ((ioData['player']['position']['a'] - 90) * (Math.PI / 180)) + (Math.PI / 4)
             });
         } else if (cmd == 'fire') {
             bullet_cnt = bullet_cnt - 1;
@@ -229,7 +234,7 @@ server.on('message', (msg, info) => {
                     position: {
                         x: ioData['player']['position']['x'],
                         y: ioData['player']['position']['y'],
-                        a: ((ioData['player']['position']['a'] - 90) * (Math.PI / 180)),
+                        a: ((ioData['player']['position']['a'] - 180) * (Math.PI / 180)),
                         t: +new Date()
                     }
                 });
@@ -250,7 +255,7 @@ server.on('listening', function () {
     var port = address.port;
     var family = address.family;
     var ipaddr = address.address;
-    console.log('Server is listening at port' + port);
+    console.log('Server is listening at port ' + port);
     console.log('Server ip :' + ipaddr);
     console.log('Server is IP4/IP6 : ' + family);
 });
@@ -260,7 +265,7 @@ server.on('close', function () {
     console.log('Socket is closed !');
 });
 
-server.bind(ncPort);
+server.bind(ncPort, ncHost);
 
 process.on('exit', function (code) {
     return console.log(`About to exit with code ${code}`);
