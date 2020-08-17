@@ -116,12 +116,9 @@ App.Main.prototype = {
 	// SOCKET ----------------------------------------------------------------------------------------
 
 	recvAddSelf: function (data) {
-		const name = window.gup('name') || '';
-
 		this.self = new Ship(this, this.game, data, true);
 		this.ships.push(this.self);
 		this.game.camera.follow(this.self.ship);
-
 		this.updateHUD('both');
 	},
 

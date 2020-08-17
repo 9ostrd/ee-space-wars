@@ -190,6 +190,17 @@ server.on('message', (msg, info) => {
     // console.log('Data received from client : ' + msg.toString());
     // console.log('Received %d bytes from %s:%d\n', msg.length, info.address, info.port);
     if ('player' in ioData) {
+        if (msg_duplicate != msg.toString()) {
+            msg_duplicate = msg.toString();
+            msg_duplicate_cnt = 0;
+        } else {
+            msg_duplicate_cnt = msg_duplicate_cnt + 1;
+            if (msg_duplicate_cnt < 10) {
+                return;
+            } else {
+                msg_duplicate_cnt = 0;
+            }
+        }
         let cmd = msg.toString().split(' ')[0];
         if (cmd == 'up') {
             ioData['player']['position']['y'] = ioData['player']['position']['y'] - 20 > 0 ? ioData['player']['position']['y'] - 20 : 0;
@@ -208,17 +219,6 @@ server.on('message', (msg, info) => {
             sendKeys({ right: false, left: true, up: false, down: false });
             clearKeys();
         } else if (cmd == 'angle') {
-            if (msg_duplicate != msg.toString()) {
-                msg_duplicate = msg.toString();
-                msg_duplicate_cnt = 0;
-            } else {
-                msg_duplicate_cnt = msg_duplicate_cnt + 1;
-                if (msg_duplicate_cnt < 100) {
-                    return;
-                } else {
-                    msg_duplicate_cnt = 0;
-                }
-            }
             let angle = msg.toString().split(' ')[1];
             ioData['player']['position']['a'] = (+angle % 360);
             io.emit('angleChange', {

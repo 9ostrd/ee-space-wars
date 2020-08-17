@@ -53,6 +53,7 @@ class ClientSocket {
 	// Key
 
 	sendKeyChange(data) {
+		if(this.app.getUserState().name == '') return;
 		this.socket.emit('keyChange', data);
 	}
 
@@ -62,6 +63,7 @@ class ClientSocket {
 
 	// Angle
 	sendAngleChange(data) {
+		if(this.app.getUserState().name == '') return;
 		this.socket.emit('angleChange', data);
 	}
 
@@ -72,6 +74,7 @@ class ClientSocket {
 	// Laser
 
 	sendFire(data) {
+		if(this.app.getUserState().name == '') return;
 		this.socket.emit('fire', data);
 	}
 

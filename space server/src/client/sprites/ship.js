@@ -136,9 +136,9 @@ export class Ship {
 		this.isSelf = isSelf;
 
 		this.ship = new ShipSprite(app, game, data, this);
-		this.app.ShipGroup.add(this.ship);
+		if(this.name != '') this.app.ShipGroup.add(this.ship);
 		this.to = new ToSprite(app, game, data, this);
-		this.app.ToGroup.add(this.to);
+		if(this.name != '') this.app.ToGroup.add(this.to);
 	}
 
 	update() {
