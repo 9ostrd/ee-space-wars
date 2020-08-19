@@ -19,8 +19,8 @@ help :
     @echo "   clean               |   "
     @echo "============================================================="
 
-include C:/Users/ysasi/Documents/BridgePoint/workspace/ee-space-wars/workspace/shipctrl/gen/code_generation/Makefile.in
-include C:/Users/ysasi/Documents/BridgePoint/workspace/ee-space-wars/workspace/shipctrl/gen/code_generation/Makefile.user
+include C:/BridgePoint/workspace/ee-space-wars/workspace/shipctrl/gen/code_generation/Makefile.in
+include C:/BridgePoint/workspace/ee-space-wars/workspace/shipctrl/gen/code_generation/Makefile.user
 
 # use Target C Cross Compiler
 CMD_TARGET_COMPILE    = ${CMD_COMPILE}

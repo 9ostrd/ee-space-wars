@@ -15,6 +15,7 @@ var Laser = function (app, game, data) {
 
   this.anchor.set(.5, .5);
   this.lifespan = LASER_PROPS.LIFESPAN - distanceTraveled;
+  this.lifespanTimeStamp = new Date().getTime();
   this.reset(realPosition.x, realPosition.y);
 
   this.animations.add('fire', [0, 1, 2]);
@@ -37,6 +38,7 @@ Laser.prototype.update = function () {
       a: Math.PI - this.angle
     });
     this.destroy();
+    this.app.removeLaser(this);
   } else if (!(this.body.y <= GAME_PROPS.WORLD.HEIGHT - 8 && this.body.y >= 8)) {
     explosion(this.game, {
       x: this.body.x,
@@ -44,13 +46,17 @@ Laser.prototype.update = function () {
       a: Math.PI + this.angle
     });
     this.destroy();
+    this.app.removeLaser(this);
+  } else if(new Date().getTime() - this.lifespanTimeStamp > 2000){
+    this.destroy();
+    this.app.removeLaser(this);
   }
 }
 
 // TODO: ???d
-Laser.prototype.hit = function () {
+Laser.prototype.hit = function() {
   // sendHit
-  this.kill();
+  this.destroy();
   this.app.removeLaser(this);
 }
 

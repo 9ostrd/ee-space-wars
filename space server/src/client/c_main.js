@@ -69,10 +69,10 @@ App.Main.prototype = {
 	},
 
 	update: function () {
-		this.ships.forEach(function (ship) {
+		this.ships.forEach((ship) => {
 			ship.update();
 		});
-		this.LaserGroup.forEach(function (laser) {
+		this.LaserGroup.forEach((laser) => {
 			laser.update();
 		});
 
@@ -105,12 +105,19 @@ App.Main.prototype = {
 	},
 
 	laserHit: function (laser, ship) {
-		if (laser.userID != ship.player.userID) this.sendHit(laser, ship);
+		if (laser.userID != ship.player.userID) {
+			this.sendHit(laser, ship);
+		}
 	},
 
 	removeShip(ship) {
 		this.ToGroup.remove(ship.to);
 		this.ShipGroup.remove(ship.ship);
+	},
+
+	removeLaser(laser) {
+		console.log('remove',laser);
+		this.LaserGroup.remove(laser);
 	},
 
 	// SOCKET ----------------------------------------------------------------------------------------
@@ -188,6 +195,7 @@ App.Main.prototype = {
 	},
 
 	recvFire: function (data) {
+		data.position.t = new Date().getTime();
 		this.LaserGroup.add(new Laser(this, this.game, data));
 	},
 
@@ -196,6 +204,18 @@ App.Main.prototype = {
 	sendHit: function (laser, ship) {
 		// TODO: share if you are a host if this.isHost
 		if (this.self.userID === laser.userID) {
+			this.socket.sendHit({
+				target: {
+					userID: ship.player.userID,
+					color: ship.player.color,
+					angle: laser.angle
+				},
+				origin: {
+					userID: laser.userID,
+					color: laser.color
+				}
+			});
+		} else if (this.self.getState().name == '') {
 			this.socket.sendHit({
 				target: {
 					userID: ship.player.userID,

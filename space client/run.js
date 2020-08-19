@@ -39,7 +39,6 @@ const getUDPData = () => {
     if ('users' in ioData) {
         let dist_min = -1;
         ioData['users'].forEach(user => {
-            console.log(user);
             let dist = Math.sqrt(Math.pow((px - user['position']['x']), 2) + Math.pow((py - user['position']['y']), 2));
             if (dist < dist_min || dist_min == -1) {
                 dist_min = dist;
@@ -79,18 +78,18 @@ const main = setInterval(() => {
 
 // Admin
 io.on('addSelf', (data) => {
-    console.log('addSelf', data);
+    //console.log('addSelf', data);
     if (!('player' in ioData)) ioData['player'] = {};
     ioData['player'] = data;
 
 });
 io.on('addUser', (data) => {
-    console.log('addUser', data);
+    //console.log('addUser', data);
     if (!('users' in ioData)) ioData['users'] = [];
     ioData['users'].push(data);
 });
 io.on('addNewUser', (data) => {
-    console.log('addNewUser', data);
+    //console.log('addNewUser', data);
     if (!('users' in ioData)) ioData['users'] = [];
     ioData['users'].push(data);
     while (!('player' in ioData));
@@ -101,7 +100,7 @@ io.on('addNewUser', (data) => {
     io.emit('shareSelf', shareSelfdata);
 });
 io.on('removeUser', (userID) => {
-    console.log('removeUser', userID);
+    //console.log('removeUser', userID);
     while (!('users' in ioData));
     let index = ioData['users'].findIndex((o) => {
         return o.userID === userID;
@@ -110,7 +109,7 @@ io.on('removeUser', (userID) => {
 });
 // Key
 io.on('keyChange', (data) => {
-    console.log('keyChange', data);
+    //console.log('keyChange', data);
     while (!('users' in ioData));
     let index = ioData['users'].findIndex((o) => {
         return o.userID === data['userID'];
@@ -122,7 +121,7 @@ io.on('keyChange', (data) => {
 });
 
 io.on('angleChange', (data) => {
-    console.log('angleChange', data);
+    //console.log('angleChange', data);
     while (!('users' in ioData));
     let index = ioData['users'].findIndex((o) => {
         return o.userID === data['userID'];
@@ -131,7 +130,7 @@ io.on('angleChange', (data) => {
 });
 // Laser
 io.on('fire', (data) => {
-    console.log('fire', data);
+    //console.log('fire', data);
     if (!('fires' in ioData)) ioData['fires'] = [];
     ioData['fires'].push(data);
 });
@@ -151,7 +150,7 @@ io.on('hit', (data) => {
 
 // emits when any error occurs
 server.on('error', (error) => {
-    console.log('Error: ' + error);
+    //console.log('Error: ' + error);
     server.close();
 });
 
@@ -190,17 +189,17 @@ server.on('message', (msg, info) => {
     // console.log('Data received from client : ' + msg.toString());
     // console.log('Received %d bytes from %s:%d\n', msg.length, info.address, info.port);
     if ('player' in ioData) {
-        if (msg_duplicate != msg.toString()) {
-            msg_duplicate = msg.toString();
-            msg_duplicate_cnt = 0;
-        } else {
-            msg_duplicate_cnt = msg_duplicate_cnt + 1;
-            if (msg_duplicate_cnt < 10) {
-                return;
-            } else {
-                msg_duplicate_cnt = 0;
-            }
-        }
+        // if (msg_duplicate != msg.toString()) {
+        //     msg_duplicate = msg.toString();
+        //     msg_duplicate_cnt = 0;
+        // } else {
+        //     msg_duplicate_cnt = msg_duplicate_cnt + 1;
+        //     if (msg_duplicate_cnt < 10) {
+        //         return;
+        //     } else {
+        //         msg_duplicate_cnt = 0;
+        //     }
+        // }
         let cmd = msg.toString().split(' ')[0];
         if (cmd == 'up') {
             ioData['player']['position']['y'] = ioData['player']['position']['y'] - 20 > 0 ? ioData['player']['position']['y'] - 20 : 0;
